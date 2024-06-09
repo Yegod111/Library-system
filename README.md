@@ -14,4 +14,5 @@ This is a toy library system with simple front-end and little usage of database.
 git clone https://github.com/Yegod111/Library-system.git
 cd Library-system
 ```
+- Create a database in MySQL and use it. Then create tables in the database just created according to database.txt.
 - If you want to run the program, run `python run.py`
