@@ -1,0 +1,10 @@
+{% extends 'user_base.html' %}
+
+{% block title %}Renew Book{% endblock %}
+
+{% block content %}
+<h1>Renew Book</h1>
+<form action="{{ url_for('user.renew_book', book_id=book_id) }}" method="post">
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

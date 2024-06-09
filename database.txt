@@ -1,0 +1,38 @@
+--MySQL database example
+
+CREATE DATABASE library;
+
+USE library;
+
+-- Create users table
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    user_type ENUM('admin', 'user') NOT NULL
+);
+
+-- Create books table
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    isbn VARCHAR(20) NOT NULL UNIQUE,
+    publisher VARCHAR(255),
+    published_date DATE,
+    copies_available INT NOT NULL CHECK (copies_available >= 0)
+);
+
+-- Create borrow_records table
+CREATE TABLE borrow_records (
+    record_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    book_id INT,
+    borrow_date DATE NOT NULL,
+    due_date DATE NOT NULL,
+    return_date DATE DEFAULT NULL,
+    FOREIGN KEY (user_id ) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    INDEX (user_id),
+    INDEX (book_id)
+);

@@ -1,0 +1,47 @@
+<!-- templates/user/search_books.html -->
+{% extends 'user_base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Search Books</h2>
+    <form method="post" action="{{ url_for('user.search_books') }}">
+        <div class="form-group">
+            {{ form.query.label(class="form-label") }}
+            {{ form.query(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <hr>
+
+    {% if books %}
+        <h3>Search Results</h3>
+        <div class="list-group">
+            {% for book in books %}
+                <a href="{{ url_for('user.list_book_details', book_id=book.book_id) }}" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">{{ book.title }}</h5>
+                    <p class="mb-1">by {{ book.author }}</p>
+                    <small>Published: {{ book.published_date }}</small>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <hr>
+
+    <h3>Recommended Books</h3>
+    <div class="list-group">
+        {% if recommended_books %}
+            {% for book in recommended_books %}
+                <a href="{{ url_for('user.list_book_details', book_id=book.book_id) }}" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">{{ book.title }}</h5>
+                    <p class="mb-1">by {{ book.author }}</p>
+                    <small>Published: {{ book.published_date }}</small>
+                </a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

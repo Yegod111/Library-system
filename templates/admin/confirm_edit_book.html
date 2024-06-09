@@ -1,0 +1,20 @@
+<!-- templates/admin/confirm_edit_book.html -->
+{% extends 'admin_base.html' %}
+{% block content %}
+<h1>Confirm Edit Book</h1>
+<p><strong>Title:</strong> {{ form.title.data }}</p>
+<p><strong>Author:</strong> {{ form.author.data }}</p>
+<p><strong>ISBN:</strong> {{ form.isbn.data }}</p>
+<p><strong>Publisher:</strong> {{ form.publisher.data }}</p>
+<p><strong>Published Date:</strong> {{ form.published_date.data }}</p>
+<p><strong>Copies Available:</strong> {{ form.copies_available.data }}</p>
+<form method="POST" action="{{ url_for('admin.confirm_edit_book', book_id=book_id) }}">
+    <input type="hidden" name="title" value="{{ form.title.data }}">
+    <input type="hidden" name="author" value="{{ form.author.data }}">
+    <input type="hidden" name="isbn" value="{{ form.isbn.data }}">
+    <input type="hidden" name="publisher" value="{{ form.publisher.data }}">
+    <input type="hidden" name="published_date" value="{{ form.published_date.data }}">
+    <input type="hidden" name="copies_available" value="{{ form.copies_available.data }}">
+    <button type="submit" class="btn btn-success">Confirm Edit Book</button>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'user_base.html' %}
+
+{% block title %}Return Book{% endblock %}
+
+{% block content %}
+<h1>Return Book</h1>
+<form action="{{ url_for('user.return_book', book_id=book_id) }}" method="post">
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

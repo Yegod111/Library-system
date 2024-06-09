@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://media.istockphoto.com/id/604333946/vector/bookshelves-with-books-on-laptop-screen-online-digital-library.jpg?s=612x612&w=0&k=20&c=0HCRo7OUTHJBMCuE9V9T6psd1b0eODVfxba6a2qJc2U=');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        .container {
+            margin-top: 150px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

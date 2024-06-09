@@ -1,0 +1,32 @@
+<!-- templates/admin/edit_book.html -->
+{% extends 'admin_base.html' %}
+{% block content %}
+<h1>Edit Book</h1>
+<form method="POST" action="{{ url_for('admin.edit_book', book_id=book.book_id) }}">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ form.title.data or book.title }}">
+    </div>
+    <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" name="author" value="{{ form.author.data or book.author }}">
+    </div>
+    <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input type="text" class="form-control" id="isbn" name="isbn" value="{{ form.isbn.data or book.isbn }}">
+    </div>
+    <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <input type="text" class="form-control" id="publisher" name="publisher" value="{{ form.publisher.data or book.publisher }}">
+    </div>
+    <div class="form-group">
+        <label for="published_date">Published Date</label>
+        <input type="date" class="form-control" id="published_date" name="published_date" value="{{ form.published_date.data or book.published_date }}">
+    </div>
+    <div class="form-group">
+        <label for="copies_available">Copies Available</label>
+        <input type="number" class="form-control" id="copies_available" name="copies_available" value="{{ form.copies_available.data or book.copies_available }}">
+    </div>
+    <button type="submit" class="btn btn-warning">Update Book</button>
+</form>
+{% endblock %}

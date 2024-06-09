@@ -1,0 +1,23 @@
+{% extends 'user_base.html' %}
+
+{% block title %}Borrowed Books{% endblock %}
+
+{% block content %}
+<h1>Borrowed Books</h1>
+{% if borrowed_books %}
+    <ul class="list-group">
+        {% for book in borrowed_books %}
+            <li class="list-group-item">
+                <h4>{{ book.title }}</h4>
+                <p>Author: {{ book.author }}</p>
+                <p>Borrowed Date: {{ book.borrow_date }}</p>
+                <p>Due Date: {{ book.due_date }}</p>
+                <a href="{{ url_for('user.renew_book', book_id=book.book_id) }}" class="btn btn-secondary btn-sm float-right ml-2">Renew</a>
+                <a href="{{ url_for('user.return_book', book_id=book.book_id) }}" class="btn btn-danger btn-sm float-right">Return</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have not borrowed any books.</p>
+{% endif %}
+{% endblock %}

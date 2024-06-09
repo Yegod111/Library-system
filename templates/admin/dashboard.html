@@ -1,0 +1,18 @@
+<!-- templates/admin/dashboard.html -->
+{% extends 'admin_base.html' %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col">
+                <h1 class="display-4">Welcome to the Admin Dashboard</h1>
+                <p class="lead">Manage your library system with ease.</p>
+                <hr class="my-4">
+                <p>Explore the menu options above to perform various administrative tasks.</p>
+                <a class="btn btn-primary btn-lg" href="{{ url_for('admin.list_books') }}" role="button">List Books</a>
+                <a class="btn btn-primary btn-lg" href="{{ url_for('admin.add_book') }}" role="button">Add Books</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
